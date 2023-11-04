@@ -5,7 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ankle Breakers</title>
   </head>
+  <style>
+    .middle {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 5px;
+    }
+  </style>
   <body>
-    <h5>I Got Next</h5>
+    <div class="middle">
+      <h1>I Got Next</h1>
+    </div>
+    <a href="http://127.0.0.1:5000/next">
+      <img
+        src="{{ url_for('static', filename='images/court.jpg') }}"
+        alt="Court"
+      />
+    </a>
   </body>
 </html>
