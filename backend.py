@@ -15,7 +15,7 @@ Q5 = queue.Queue()
 Q6 = queue.Queue()
 
 def court1_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data1
     Q1.put(dict_info)
     return
 
@@ -25,7 +25,7 @@ def court1_dq():
     return
 
 def court2_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data2
     Q2.put(dict_info[0])
     return
 
@@ -35,7 +35,7 @@ def court2_dq():
     return
 
 def court3_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data3
     Q3.put(dict_info[0])
     return
 
@@ -45,7 +45,7 @@ def court3_dq():
     return
 
 def court4_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data4
     Q4.put(dict_info[0])
     return
 
@@ -55,7 +55,7 @@ def court4_dq():
     return
 
 def court5_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data5
     Q5.put(dict_info[0])
     return
 
@@ -65,7 +65,7 @@ def court5_dq():
     return
 
 def court6_q():
-    dict_info = app.receive_form_data
+    dict_info = app.receive_form_data6
     Q6.put(dict_info[0])
     return
 
