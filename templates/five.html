@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mike's Him</title>
+    <style>
+      .middle {
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("myForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting the standard way
+
+            const formData = {
+              firstInput: document.getElementById("firstInput").value,
+              secondInput: document.getElementById("secondInput").value,
+              thirdInput: document.getElementById("thirdInput").value,
+            };
+
+            fetch("/receive_form_data5", {
+              method: "POST",
+              body: JSON.stringify(formData),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data); // Handle the response data
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="myForm">
+      <div class="middle">
+        <input type="text" id="firstInput" placeholder="team name" required />
+      </div>
+      <div class="middle">
+        <input
+          type="text"
+          id="secondInput"
+          placeholder="number of players"
+          required
+        />
+      </div>
+      <div class="middle">
+        <h5>
+          Who is on your team? (Enter UBITs, include yourself and split UBITs by
+          commas)
+        </h5>
+      </div>
+      <div class="middle">
+        <input type="text" id="thirdInput" placeholder="players..." required />
+      </div>
+      <div class="middle">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
