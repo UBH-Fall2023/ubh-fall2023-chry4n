@@ -10,6 +10,7 @@
         position: relative;
       }
     </style>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document
@@ -32,7 +33,21 @@
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log(data); // Handle the response data
+                console.log(data); // Handle the response data from the POST
+                // Now make a GET request to get the cargo
+                return fetch("/receive_form_data1");
+              })
+              .then((response) => response.json())
+              .then((cargo) => {
+                console.log("Cargo:", cargo); // Handle the cargo data
+                const cargoContainer =
+                  document.getElementById("cargo-container");
+                cargoContainer.innerHTML = ""; // Clear previous cargo data
+                cargo.forEach((item) => {
+                  const element = document.createElement("div");
+                  element.textContent = JSON.stringify(item);
+                  cargoContainer.appendChild(element);
+                });
               })
               .catch((error) => {
                 console.error("Error:", error);
@@ -67,5 +82,6 @@
         <button type="submit">Submit</button>
       </div>
     </form>
+    <div id="cargo-container"></div>
   </body>
 </html>

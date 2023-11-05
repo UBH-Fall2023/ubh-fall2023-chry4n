@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-
+import backend
+import queue
+import random
 
 app = Flask(__name__)
 
@@ -8,11 +10,24 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/receive_form_data1', methods=['POST'])
+listy = [] 
+@app.route('/receive_form_data1', methods=['POST', 'GET'])
 def receive_form_data1():
-    data = request.json  # This contains the data sent from the front end
-    print(data)  # You can process the data here as needed
-    return jsonify({"response": "Form data received!", "receivedData": data})
+    Q1 = queue.Queue() 
+    #global listy
+    if request.method == 'POST':
+        data = request.json
+        listy.append(data['firstInput'])
+        print(listy)
+        Q1.put(data)
+        return jsonify({"response": "Form data received!", "receivedData": data})
+    
+    elif request.method == 'GET':
+        cargo = listy
+        print(listy)
+        print(cargo)
+        return jsonify(cargo)
+    
 
 @app.route('/receive_form_data2', methods=['POST'])
 def receive_form_data2():
