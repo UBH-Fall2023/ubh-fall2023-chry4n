@@ -8,8 +8,39 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/receive_form_data', methods=['POST'])
-def receive_form_data():
+@app.route('/receive_form_data1', methods=['POST'])
+def receive_form_data1():
+    data = request.json  # This contains the data sent from the front end
+    print(data)  # You can process the data here as needed
+    return jsonify({"response": "Form data received!", "receivedData": data})
+
+@app.route('/receive_form_data2', methods=['POST'])
+def receive_form_data2():
+    data = request.json  # This contains the data sent from the front end
+    print(data)  # You can process the data here as needed
+    return jsonify({"response": "Form data received!", "receivedData": data})
+
+@app.route('/receive_form_data3', methods=['POST'])
+def receive_form_data3():
+    data = request.json  # This contains the data sent from the front end
+    print(data)  # You can process the data here as needed
+    return jsonify({"response": "Form data received!", "receivedData": data})
+
+
+@app.route('/receive_form_data4', methods=['POST'])
+def receive_form_data4():
+    data = request.json  # This contains the data sent from the front end
+    print(data)  # You can process the data here as needed
+    return jsonify({"response": "Form data received!", "receivedData": data})
+
+@app.route('/receive_form_data5', methods=['POST'])
+def receive_form_data5():
+    data = request.json  # This contains the data sent from the front end
+    print(data)  # You can process the data here as needed
+    return jsonify({"response": "Form data received!", "receivedData": data})
+
+@app.route('/receive_form_data6', methods=['POST'])
+def receive_form_data6():
     data = request.json  # This contains the data sent from the front end
     print(data)  # You can process the data here as needed
     return jsonify({"response": "Form data received!", "receivedData": data})
